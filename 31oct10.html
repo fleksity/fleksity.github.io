@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #field{ 
+        width: 1080px;
+        height: 800px;
+        border: solid 1px;
+    }
+    </style>
+    
+</head>
+<body>
+    <div id="field"onclick="createZombie(event)"></div>
+</body>
+<script>
+    let field = document.getElementById('field');
+    let zombie = document.createElement('img');
+    zombie.src = 'zombi-normal-parado-pvz.gif';
+    document.body.append(zombie);
+
+    let left = 333;
+    let step = 1;
+
+
+    zombie.style.position = 'fixed';
+    zombie.style.top = '333px';
+    zombie.style.left - left + '333px';
+    zombie.style.transform = 'rotateY(180deg)';
+    function createZombie(event){
+        left = left + step;
+        
+        if (left > 800){
+            step = step *(-1);
+            zombie.style.transform = 'rotateY(0deg)';
+        }
+        if (left < 100){
+            step = step *(-1);
+            zombie.style.transform = 'rotateY(180deg)';
+        }
+        zombie.style.left = left + 'px';
+    }
+   
+
+    setInterval(moveZombie, 49);
+</script>
+
+</html>
